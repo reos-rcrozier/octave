@@ -109,6 +109,7 @@ include bug-59661/module.mk
 include bug-59704/module.mk
 include bug-59937/module.mk
 include bug-60237/module.mk
+include bug-60726/module.mk
 include bug-60882/module.mk
 include bug-61105/module.mk
 include bug-61191/module.mk

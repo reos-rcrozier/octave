@@ -126,7 +126,10 @@ octave_classdef::subsref (const std::string& type,
                     tmp = idx.front ();
 
                   nout = xnumel (tmp);
-                  if (nargout != 0 || nout > 1)
+                  // Take nout as nargout for subsref, unless the index expression 
+                  // is a whole sentence starting with the form id.member and id is
+                  // one element (in that case, nargout remains 0).
+                  if (type[0] != '.' || nout != 1 || nargout < 0)
                     nargout = nout;
                 }
               else if (nargout < 0)
