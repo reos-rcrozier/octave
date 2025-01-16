@@ -104,10 +104,24 @@ function varargout = structfun (fcn, S, varargin)
     error ("structfun: invalid options");
   endif
 
-  varargout = cell (max ([nargout, 1]), 1);
-  [varargout{:}] = cellfun (fcn, struct2cell (S), varargin{:});
+  varargout_defined = true;
 
-  if (! uniform_output)
+  if (nargout == 0)
+    ## ANS should not normally be defined here, but just in case someone
+    ## changes the code above so that it could be...
+    clear ("ans");
+    cellfun (fcn, struct2cell (S), varargin{:});
+    if (exist ("ans", "var"))
+      varargout = {ans};
+    else
+      varargout_defined = false;
+    endif
+  else
+    varargout = cell (max ([nargout, 1]), 1);
+    [varargout{:}] = cellfun (fcn, struct2cell (S), varargin{:});
+  endif
+
+  if (! uniform_output && varargout_defined)
     varargout = cellfun ("cell2struct", varargout, {fieldnames(S)}, {1}, ...
                          uo_str, false);
   endif
