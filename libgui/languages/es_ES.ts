@@ -19,7 +19,7 @@
     <message>
         <location line="+6"/>
         <source>Background color, magenta (255, 0, 255) means default</source>
-        <translation>Color de fondo; rosa (255,0,255) representa predeterminado</translation>
+        <translation>Color de fondo. Predeterminado a magenta (255,0,255)</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -224,13 +224,13 @@
         <location line="-21"/>
         <location filename="../graphics/ui-annotation-dialog.h" line="-3"/>
         <source>Horizontal alignment</source>
-        <translation>Alineamiento horizontal</translation>
+        <translation>Alineación horizontal</translation>
     </message>
     <message>
         <location line="+29"/>
         <location filename="../graphics/ui-annotation-dialog.h" line="+5"/>
         <source>Vertical alignment</source>
-        <translation>Alineamiento vertical</translation>
+        <translation>Alineación vertical</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -501,7 +501,7 @@ Sólo estará disponible la ayuda a través de la ventana de comandos.</translat
         <source>
 No documentation bookmarks loaded!</source>
         <translation>
-No se han cargado favoritos de documentación.</translation>
+No se han cargado favoritos de documentación</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -3575,7 +3575,7 @@ esta actualmente en uso para la acción
         <location line="+237"/>
         <location filename="../src/ui-settings-dialog.h" line="+17"/>
         <source>These preferences are applied after any .octaverc startup files.</source>
-        <translation>Estas configuraciones se aplicarán después de la carga del archivo de inicio .octaverc.</translation>
+        <translation>Estas configuraciones se aplicarán después de la carga de cualquier archivo de inicio .octaverc.</translation>
     </message>
     <message>
         <location line="+353"/>
@@ -4008,7 +4008,7 @@ esta actualmente en uso para la acción
         <location line="+13"/>
         <location filename="../src/ui-settings-dialog.h" line="+1"/>
         <source>Break lines only in comments</source>
-        <translation>Partir líneas solo en comentarios</translation>
+        <translation>Partir líneas sólo en comentarios</translation>
     </message>
     <message>
         <location line="+60"/>
@@ -4170,7 +4170,7 @@ esta actualmente en uso para la acción
         <location line="-253"/>
         <location filename="../src/ui-settings-dialog.h" line="-14"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If set, the focus of the widgets that are docked to the main window follows the mouse cursor. This is intended for having the same behavior within the main window when &amp;quot;focus follows mouse&amp;quot; is used for the desktop environment.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Si se selecciona, el foco en los widgets anclados en la ventana principal se activa según la posición del ratón. Esto persigue un comportamiento igual al del entorno de escritorio..&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Si se selecciona, el foco en los widgets anclados en la ventana principal se activa según la posición del ratón. Esto persigue un comportamiento igual al del entorno de escritorio.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -4334,7 +4334,7 @@ esta actualmente en uso para la acción
         <location line="+78"/>
         <location filename="../src/ui-settings-dialog.h" line="+3"/>
         <source>Variable Editor Colors</source>
-        <translation>Colores de editor de variables</translation>
+        <translation>Colores del editor de variables</translation>
     </message>
     <message>
         <location line="+12"/>
