@@ -38,6 +38,13 @@
 ## The optional output @var{d} contains a column vector of distances between
 ## the query points @var{xi} and the nearest simplex points @var{x}.
 ##
+## Compatibility note: The @code{dsearchn} algorithm only uses the input
+## @var{tri} when @var{outdim} is specified to determine if any points lie
+## outside of the triangulation region.  For compatibility, @var{tri} is
+## accepted as an input even when @var{outdim} is not specified, but it is not
+## used or checked to be a valid triangulation, and providing it will not
+## affect either the output @var{idx} or the calculation efficiency.
+##
 ## @seealso{dsearch, tsearch}
 ## @end deftypefn
 

@@ -29,7 +29,9 @@
 ## Return the index @var{idx} of the closest point in @code{@var{x}, @var{y}}
 ## to the elements @code{[@var{xi}(:), @var{yi}(:)]}.
 ##
-## The variable @var{s} is accepted for compatibility but is ignored.
+## The variables @var{s} and @var{tri} are accepted for compatibility, but they
+## are not used in the calculation or checked for validity.
+##
 ## @seealso{dsearchn, tsearch}
 ## @end deftypefn
 
