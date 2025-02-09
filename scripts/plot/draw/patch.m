@@ -77,9 +77,11 @@
 ## The full list of properties is documented at @ref{Patch Properties}.
 ## Useful patch properties include: @qcode{"edgecolor"}, @qcode{"facecolor"},
 ## @qcode{"faces"}, @qcode{"vertices"}, and @qcode{"facevertexcdata"}.
+##
 ## @item
 ## Unexpected geometry results can occur from mixing x-y-z and
 ## face-vertex forms of defining geometry.
+##
 ## @item
 ## Unexpected patch color results can occur from using @qcode{"cdata"} color
 ## definitons with face-vertex defined geometry or @qcode{"facevertexcdata"}

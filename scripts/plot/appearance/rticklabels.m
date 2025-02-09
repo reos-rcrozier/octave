@@ -34,7 +34,7 @@
 ##
 ## When called with the argument @var{tickval} being a vector of numbers or
 ## a cell array of strings and/or numbers, the labels will be changed to
-## match these new values. Note that the center point of the plots made by
+## match these new values.  Note that the center point of the plots made by
 ## @code{polar} are never labeled, so the first specified label will be
 ## applied to the second rtick location and subesquent labels will progress
 ## outward.
@@ -50,8 +50,8 @@
 ## Requesting a return value when calling @code{rticklabels} to set a property
 ## value will result in an error.
 ##
-## Compatability Note:  The 'mode' property for rticklabels has not yet been
-##                      implemented.
+## Compatability Note: The @qcode{'mode'} property for rticklabels has not yet
+## been implemented.
 ##
 ## @seealso{polar, rticks, tticklabels, xticklabels, yticklabels, zticklabels,
 ## get, set}

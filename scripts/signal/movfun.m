@@ -32,7 +32,7 @@
 ## @var{x}.
 ##
 ## The moving window length input @var{wlen} can either be a numeric scalar
-## or a 2-element numeric array @w{@qcode{[@var{nb}, @var{na}]}}.  The elements
+## or a 2-element numeric array @w{@code{[@var{nb}, @var{na}]}}.  The elements
 ## included in the moving window depend on the size and value of @var{wlen}
 ## as well as whether the @qcode{"SamplePoints"} option has been specified.
 ## For full details of element inclusion,
@@ -70,7 +70,7 @@
 ##
 ## This property specifies a sorted, numeric vector of unique coordinate
 ## positions of the data points in @var{x}.  The default value is the vector
-## @w{@qcode{[1 : @var{numel (x)}]}}.  When a non-default SamplePoints vector
+## @w{@code{[1 : @var{numel (x)}]}}.  When a non-default SamplePoints vector
 ## is specified, the moving window length @var{wlen} is measured
 ## against the SamplePoints positions to determine which points are
 ## included in each window slice.  SamplePoints need not be uniformly spaced.
@@ -128,10 +128,10 @@
 ##
 ## @end table
 ##
-## Note 1:  For non-uniform SamplePoint spacing, the only permitted value for
+## Note 1: For non-uniform SamplePoint spacing, the only permitted value for
 ## @qcode{"EndPoints"} is @qcode{"shrink"}.
 ##
-## Note 2:  For some @qcode{"Endpoints"} options, the window size at the
+## Note 2: For some @qcode{"Endpoints"} options, the window size at the
 ## boundaries may not be the same as for the central part, and @var{fcn} must
 ## work in these cases.
 ##
@@ -139,15 +139,16 @@
 ## Controls haw @code{NaN} and @code{NA} values affect the output of
 ## @qcode{"movfun"}.  The value @qcode{"includenan"} (default) causes
 ## @code{NaN} and @code{NA} values to be included in the moving window, and any
-## window slice containing @code{NaN} or @code{NA} values will return @code{NaN}
-## for that element.  The value @qcode{"omitnan"} causes @qcode{"movfun"} to
-## ignore any @code{NaN} or @code{NA} values resulting in fewer elements being
-## used to calculate the result for that window slice.  If @qcode{"omitnan"} is
-## specified and a window slice contains all @code{NaN} or @code{NA} values,
-## @qcode{"movfun"} returns the value specified by the @qcode{"nanval"} property
-## for that element.  The values @qcode{"includemissing"} and
-## @qcode{"omitmissing"} may be used synonymously with @qcode{"includenan"} and
-## @qcode{"omitnan"}, respectively.
+## window slice containing @code{NaN} or @code{NA} values will return
+## @code{NaN} for that element.  The value @qcode{"omitnan"} causes
+## @qcode{"movfun"} to ignore any @code{NaN} or @code{NA} values resulting
+## in fewer elements being used to calculate the result for that window
+## slice.  If @qcode{"omitnan"} is specified and a window slice contains all
+## @code{NaN} or @code{NA} values, @qcode{"movfun"} returns the value
+## specified by the @qcode{"nanval"} property for that element.  The values
+## @qcode{"includemissing"} and @qcode{"omitmissing"} may be used
+## synonymously with @qcode{"includenan"} and @qcode{"omitnan"},
+## respectively.
 ##
 ## @item @qcode{"nanval"}
 ## Specifies the value to return when @qcode{"nancond"} is set to
