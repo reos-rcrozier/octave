@@ -990,7 +990,7 @@ extern "C"
 @end group
 @end example
 
-When calling functions that are implemented in Fortran code, some pecularities
+When calling functions that are implemented in Fortran code, some peculiarities
 have to be taken into account.  Symbol names in Fortran are case-insensitive,
 and depending on the used Fortran compiler, function names are either exported
 with all lowercase or with all uppercase characters.  Additionally, some
@@ -1069,7 +1069,7 @@ Return type of a C++ function that acts like a Fortran subroutine.
 Use the following macros to return from C-language functions that are supposed
 to act like Fortran subroutines.  @w{@env{F77_NORETURN}} is intended to be used
 as the last statement of such a function that has been tagged with a
-@qcode{"noreturn"} attribute.
+@nospell{@qcode{"noreturn"}} attribute.
 
 @example
 @group

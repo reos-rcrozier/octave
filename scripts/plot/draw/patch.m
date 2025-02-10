@@ -84,7 +84,7 @@
 ##
 ## @item
 ## Unexpected patch color results can occur from using @qcode{"cdata"} color
-## definitons with face-vertex defined geometry or @qcode{"facevertexcdata"}
+## definitions with face-vertex defined geometry or @qcode{"facevertexcdata"}
 ## color definitions with x-y-z defined geometry.
 ## @end enumerate
 ## @seealso{fill, get, set}

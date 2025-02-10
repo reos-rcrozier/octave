@@ -60,8 +60,8 @@ of your computer.  You can also type @code{octave} in a command shell;
 as long as you have Octave in your path, it will start.
 
 If you start Octave with the GUI, the central window is the Octave's
-own command-line interface (also called a REPL by other programming languages
-for Read-Evaluate-Print-Loop).  In this window Octave displays an
+own command-line interface (also called a @nospell{REPL} by other programming
+languages for Read-Evaluate-Print-Loop).  In this window Octave displays an
 initial message and then a prompt like @code{>> } or @code{octave:1> }
 indicating it is ready to accept input.  If you have chosen the traditional
 command-line interface then the command prompt appears in the same window
