@@ -45,7 +45,7 @@
 ## used or checked to be a valid triangulation, and providing it will not
 ## affect either the output @var{idx} or the calculation efficiency.
 ##
-## @seealso{dsearch, tsearch}
+## @seealso{tsearchn, delaunayn}
 ## @end deftypefn
 
 function [idx, d] = dsearchn (x, tri, xi, outval)
