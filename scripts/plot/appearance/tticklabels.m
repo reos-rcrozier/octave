@@ -62,6 +62,7 @@
 ##         equivalent Cartesian functions.
 
 function labels = tticklabels (varargin)
+
   [hax, varargin, nargs] = __plt_get_axis_arg__ ("tticklabels", varargin{:});
 
   if (nargs > 1)
@@ -143,7 +144,7 @@ function labels = tticklabels (varargin)
   else
     ## Set new label values.
 
-    if isempty (arg)
+    if (isempty (arg))
       ## If an empty cell or array is set, set all labels to "".
       arg = cell (nt, 1);
       arg(:) = {""};
@@ -162,6 +163,7 @@ function labels = tticklabels (varargin)
   endif
 
 endfunction
+
 
 %!test
 %! t = [0:15:180] * pi / 180;

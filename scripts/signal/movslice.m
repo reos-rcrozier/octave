@@ -311,6 +311,7 @@ function [slcidx, C, Cpre, Cpost, win, wlen, scalar_wlen] = movslice (N, wlen, s
 
 endfunction
 
+
 %!assert (double (movslice (10, 2)), [1:9; 2:10])
 %!assert (double (movslice (10, 9)), [1:9; 2:10].')
 %!assert (double (movslice (10, [1, 0])), [1:9; 2:10])
@@ -519,7 +520,7 @@ endfunction
 %! assert (double(sl), [1, 1, 1:7, 9; 2:9, 9, 10]);
 %! assert (c, 3:10)
 %! assert (cpre, 1:2);
-%! assert (cpost, ones(1,0));
+%! assert (cpost, ones (1,0));
 %! assert (win, [1:9, 11] + [-2;2]);
 %! assert (wlen, [2, 2]);
 %! assert (sw, true);

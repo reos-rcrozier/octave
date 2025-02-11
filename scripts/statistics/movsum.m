@@ -82,8 +82,6 @@ function y = movsum (x, wlen, varargin)
                 __parse_movargs__ ("movsum", varargin{:}){:});
   endif
 
-
-
 endfunction
 
 

@@ -81,6 +81,7 @@ function y = movmin (x, wlen, varargin)
     y = movfun (@min, x, wlen, "nancond", "omitnan", "Endpoints", Inf,
                 __parse_movargs__ ("movmin", varargin{:}){:});
   endif
+
 endfunction
 
 

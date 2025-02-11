@@ -64,6 +64,7 @@
 ##         equivalent Cartesian functions.
 
 function labels = rticklabels (varargin)
+
   [hax, varargin, nargs] = __plt_get_axis_arg__ ("rticklabels", varargin{:});
 
   if (nargs > 1)
@@ -154,7 +155,7 @@ function labels = rticklabels (varargin)
   else
     ## Set new label values.
 
-    if isempty (arg)
+    if (isempty (arg))
       ## If an empty cell or array is set, set all labels to "".
       arg = cell (nr, 1);
       arg(:) = {""};
@@ -173,6 +174,7 @@ function labels = rticklabels (varargin)
   endif
 
 endfunction
+
 
 %!test
 %! t = [0:15:180] * pi / 180;

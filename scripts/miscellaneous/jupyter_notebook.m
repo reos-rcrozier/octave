@@ -443,6 +443,7 @@ classdef jupyter_notebook < handle
           endif
         endif
       end_unwind_protect
+
     endfunction
 
 

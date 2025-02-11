@@ -81,6 +81,7 @@ function y = movprod (x, wlen, varargin)
     y = movfun (@prod, x, wlen, "nanval", 1, "Endpoints", 1,
                 __parse_movargs__ ("movprod", varargin{:}){:});
   endif
+
 endfunction
 
 

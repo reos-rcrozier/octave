@@ -81,6 +81,7 @@ function y = movmax (x, wlen, varargin)
     y = movfun (@max, x, wlen, "nancond", "omitnan", "Endpoints", -Inf,
                 __parse_movargs__ ("movmax", varargin{:}){:});
   endif
+
 endfunction
 
 
