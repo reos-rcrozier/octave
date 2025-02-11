@@ -98,8 +98,8 @@ Bug overview at https://octave.space/savannah/.
 
 * Verify <code>make check</code> is passing on all [http://buildbot.octave.org:8010/#/waterfall buildbot combinations of OS and compilers] and [https://github.com/gnu-octave/octave/actions GitHub CI runners]. Also check [https://github.com/gnu-octave/octave-buildbot/actions test suite runs on “freshly brewed Octave for Windows”] (Kai’s buildbots on octave.space).
 * Use software tools to check quality of Octave code.
-** Check for memory leaks by configuring with <code>--enable-address-sanitizer-flags</code> and compiling with <code>-g -O0 -fno-optimize-sibling-calls</code> in <code>CFLAGS</code>, <code>CXXFLAGS</code>, and <code>LDFLAGS</code>.
-** Check for bad memory accesses by compiling with <code>-g -O0 -fsanitize=undefined -fno-omit-frame-pointer   -fno-optimize-sibling-calls</code> in <code>CFLAGS</code>, <code>CXXFLAGS</code>, and <code>LDFLAGS</code>.
+** Check for memory leaks by configuring with <code>--enable-address-sanitizer-flags --disable-visibility-flags --disable-docs --disable-java</code> and compiling with <code>-g -O0</code> in <code>CFLAGS</code>, <code>CXXFLAGS</code>.
+** Check for bad memory accesses by configuring with <code>--disable-visibility-flags --disable-docs --disable-java</code> and compiling with <code>-g -O0 -fsanitize=undefined -fno-omit-frame-pointer</code> in <code>CFLAGS</code>, <code>CXXFLAGS</code>, and linking with <code>-fsanitize=undefined -fno-omit-frame-pointer</code> in <code>LDFLAGS</code>.
 ** Update static code analysis results.
 *** For <code>clang</code>, do <code>scan-build make -j&lt;N&gt; all</code> and then <code>scan-view</code>.
 *** See [https://wiki.octave.org/PVS_static_analyzer_-_5.0_Release PVS static analyzer - 5.0 Release].
