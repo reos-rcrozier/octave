@@ -143,7 +143,7 @@ Summary of important user-visible changes for version 10 (yyyy-mm-dd):
 
 * `clim`
 * `rticklabels`
-* `tticklabels`
+* `thetaticklabels`
 
 ### Deprecated functions, properties, and operators
 
