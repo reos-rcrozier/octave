@@ -242,18 +242,14 @@ read_inf_nan_na (std::istream& is, char c0)
           {
             char c2 = is.get ();
             if (c2 == 'n' || c2 == 'N')
-              {
-                val = std::numeric_limits<T>::quiet_NaN ();
-                is.peek ();  // Potentially set EOF bit
-              }
+              val = std::numeric_limits<T>::quiet_NaN ();
             else
               {
                 val = numeric_limits<T>::NA ();
-                if (c2 != std::istream::traits_type::eof ())
-                  is.putback (c2);
-                else
-                  is.clear (is.rdstate () & ~std::ios::failbit);
+                is.putback (c2);
+                is.clear (is.rdstate () & ~std::ios::failbit);
               }
+            is.peek ();  // Potentially set EOF bit
           }
         else
           is.setstate (std::ios::failbit);
