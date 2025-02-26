@@ -565,7 +565,7 @@ public:
 
   virtual octave_function * get_cached_fcn (const octave_value_list&) { return nullptr; }
 
-  virtual octave_function * get_cached_fcn (void*, void*) { return nullptr; }
+  virtual octave_function * get_cached_fcn (void *, void *) { return nullptr; }
 
   virtual void erase_subfunctions () { }
 
