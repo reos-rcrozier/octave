@@ -237,7 +237,7 @@ jobs:
           unset CC
           unset CXX
           IFS=:
-          for package in "${PACKAGE_NAMES}"; do
+          for package in ${PACKAGE_NAMES}; do
             printf "   \033[0;32m==>\033[0m Octave package \033[0;32m${package}\033[0m\n"
             echo "::group::Install ${package}"
             octave --eval "pkg install -verbose -forge ${package}"
