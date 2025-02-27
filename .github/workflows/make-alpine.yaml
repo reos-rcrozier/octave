@@ -198,12 +198,14 @@ jobs:
           key: ${{ steps.ccache-prepare.outputs.key }}
 
       - name: check
+        id: run-test-suite
         timeout-minutes: 60
         run: |
           XDG_RUNTIME_DIR=$RUNNER_TEMP \
             xvfb-run -a make -C ./.build check | tee ./test-suite.log
 
       - name: display test suite log
+        if: always() && (steps.run-test-suite.outcome != 'skipped')
         continue-on-error: true
         # Displaying the log shouldn't take long. Cancel the step if it does.
         timeout-minutes: 5
