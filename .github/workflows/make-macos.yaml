@@ -190,7 +190,7 @@ jobs:
         timeout-minutes: 60
         run: |
           echo 'makeinfo_program ("${HOMEBREW_PREFIX}/opt/texinfo/bin/makeinfo");' >> ./scripts/startup/site-rcfile
-          make -C ./.build check V=1 | tee ./test-suite.log
+          make -C ./.build check | tee ./test-suite.log
 
       - name: display test suite log
         continue-on-error: true

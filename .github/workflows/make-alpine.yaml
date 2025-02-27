@@ -201,7 +201,7 @@ jobs:
         timeout-minutes: 60
         run: |
           XDG_RUNTIME_DIR=$RUNNER_TEMP \
-            xvfb-run -a make -C ./.build check V=1 | tee ./test-suite.log
+            xvfb-run -a make -C ./.build check | tee ./test-suite.log
 
       - name: display test suite log
         continue-on-error: true

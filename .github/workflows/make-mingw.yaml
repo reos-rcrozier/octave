@@ -213,7 +213,7 @@ jobs:
 
         run: |
           export PATH=$(echo "$PATH" | sed -e "s|$MINGW_PREFIX/lib/ccache/bin:||g")
-          make -C ./.build check RUN_OCTAVE_OPTIONS="--no-gui-libs" V=1 | tee ./test-suite.log
+          make -C ./.build check RUN_OCTAVE_OPTIONS="--no-gui-libs" | tee ./test-suite.log
 
       - name: display test suite log
         continue-on-error: true

@@ -223,7 +223,7 @@ jobs:
 
         run: |
           export PATH=$(echo "$PATH" | sed -e "s|/usr/lib/ccache/bin:||g")
-          EGREP="grep -E" make -C ./.build check V=1 | tee ./test-suite.log
+          EGREP="grep -E" make -C ./.build check | tee ./test-suite.log
 
       - name: display test suite log
         continue-on-error: true
