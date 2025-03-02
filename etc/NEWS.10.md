@@ -215,6 +215,19 @@ from Octave 10.
 - Octave now requires a C++ compiler that is compliant with C++17 (preferably
   with GNU extensions).
 
+- The location of the list of packages installed site-wide for all users
+  (`pkg global_list`) has changed (bug #66831).  The file `octave_packages` is
+  now installed at `octave-config -p LOCALAPIPKGDIR`.  There will be no
+  disruption if you are upgrading to version 10.1 of Octave and then installing
+  packages.  If you want to use previously installed packages that you *know*
+  will run without re-compilation (because the package uses m-files only and no
+  oct-files or mex-files), then you can execute the command
+  `pkg global_list CURRENT_GLOBAL_LIST_FILE` (e.g., from within one of your
+  startup files) to point Octave to the existing list.  Alternatively, run
+  `pkg rebuild -global` once (potentially needs super-user rights) or copy
+  `CURRENT_GLOBAL_LIST_FILE` to the path and filename returned by
+  `pkg global_list`.
+
 
 Summary of bugs fixed for version 10.1.0 (yyyy-mm-dd):
 ----------------------------------------------------
