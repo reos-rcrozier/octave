@@ -527,7 +527,7 @@ endfunction
 %!demo
 %! clf;
 %! hold on;
-%! draw_fcn = @(x) (plot (x(1), x(2)) && false);
+%! draw_fcn = @(x, ~, ~) (plot (x(1), x(2)) && false);
 %! fcn = @(x) (x(1)-5).^2 + (x(2)-8).^4;
 %! x0 = [0;0];
 %! [xmin, fval] = fminsearch (fcn, x0, optimset ("OutputFcn", draw_fcn))
