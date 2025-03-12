@@ -1682,12 +1682,21 @@ check_magick=yes
 use_magick=no
 AC_ARG_WITH([magick],
   [AS_HELP_STRING([--with-magick=LIB],
-    [select library to use for image I/O (options: GraphicsMagick++(default) or ImageMagick++)])],
-  [if test x"$withval" = xno; then
-     check_magick=no
-   else
-     magick="$withval"
-   fi], [magick="GraphicsMagick++"])
+    [select library to use for image I/O (options: GraphicsMagick++(default) or ImageMagick++)])
+dnl Second help string must not be indented for correct alignment
+AS_HELP_STRING([--without-magick], [don't use Magick library, some image I/O will be impaired])],
+  [case $withval in
+     yes | "")
+       magick="GraphicsMagick++"
+     ;;
+     no)
+       check_magick=no
+     ;;
+     *)
+       magick="$withval"
+     ;;
+   esac],
+  [magick="GraphicsMagick++"])
 
 if test $check_magick = yes; then
 
