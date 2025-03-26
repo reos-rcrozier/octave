@@ -284,41 +284,43 @@ Evaluate the function named "@var{fcn}" on the elements of the cell array
 Elements in @var{C} are passed on to the named function individually.  The
 function @var{fcn} can be one of the functions
 
-@table @code
-@item isempty
+@table @asis
+@item @qcode{"isempty"}
 Return 1 for empty elements.
 
-@item islogical
+@item @qcode{"islogical"}
 Return 1 for logical elements.
 
-@item isnumeric
+@item @qcode{"isnumeric"}
 Return 1 for numeric elements.
 
-@item isreal
+@item @qcode{"isreal"}
 Return 1 for real elements.
 
-@item length
+@item @qcode{"length"}
 Return a vector of the lengths of cell elements.
 
-@item ndims
+@item @qcode{"ndims"}
 Return the number of dimensions of each element.
 
-@item  numel
-@itemx prodofsize
+@item  @qcode{"numel"}
+@itemx @qcode{"prodofsize"}
 Return the number of elements contained within each cell element.  The
 number is the product of the dimensions of the object at each cell element.
 
-@item size
+@item @qcode{"size"}
 Return the size along the @var{k}-th dimension.
 
-@item isclass
+@item @qcode{"isclass"}
 Return 1 for elements of @var{class}.
 @end table
 
-Additionally, @code{cellfun} accepts an arbitrary function @var{fcn} in the
-form of an inline function, function handle, or the name of a function (in a
-character string).  The function can take one or more arguments, with the
-inputs arguments given by @var{C1}, @var{C2}, etc.  For example:
+Additionally, @code{cellfun} accepts an arbitrary function @var{fcn} given
+as a name in a character string, as an inline function, or as a function
+handle.  Specifying @var{fcn} with a character string is preferred as the
+performance is ~3X better than using a function handle.  The function can take
+one or more arguments, with the inputs arguments given by @var{C1}, @var{C2},
+etc.  For example:
 
 @example
 @group
