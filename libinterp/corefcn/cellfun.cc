@@ -760,7 +760,7 @@ nevermind:
 %! A = cellfun (inline ("islogical (x)", "x"), {true, 0.1, false, i*2});
 %! assert (A, [true, false, true, false]);
 %!test
-%! A = cellfun (@islogical, {true, 0.1, false, i*2});
+%! A = cellfun ('islogical', {true, 0.1, false, i*2});
 %! assert (A, [true, false, true, false]);
 %!test
 %! A = cellfun (@(x) islogical (x), {true, 0.1, false, i*2});
@@ -806,7 +806,7 @@ nevermind:
 %! A = cellfun (@(x) islogical (x) && y, {false, 0.3});
 %! assert (A, [true, false]);
 %!test  # Three output arguments of different type
-%! [A, B, C] = cellfun (@find, {10, 11; 0, 12}, "UniformOutput", false);
+%! [A, B, C] = cellfun ('find', {10, 11; 0, 12}, "UniformOutput", false);
 %! assert (isequal (A, {true, true; [], true}));
 %! assert (isequal (B, {true, true; [], true}));
 %! assert (isequal (C, {10, 11; [], 12}));
@@ -823,7 +823,7 @@ nevermind:
 %! A = cellfun (@(x) x, {false, true; false, true}, "UniformOutput", false);
 %! assert (A, {false, true; false, true});
 %!test  # Three output arguments of same type
-%! [A, B, C] = cellfun (@find, {true, false; false, true}, ...
+%! [A, B, C] = cellfun ('find', {true, false; false, true}, ...
 %!                      "UniformOutput", false);
 %! assert (isequal (A, {true, []; [], true}));
 %! assert (isequal (B, {true, []; [], true}));
@@ -858,7 +858,7 @@ nevermind:
 %! assert (isequal (A{1}, [1.1, 2.1, 3.1]));
 %! assert (isequal (A{2}, [4, 5, 6]));
 %!test  # Three output arguments of different type
-%! [A, B, C] = cellfun (@find, {10, 11; 0, 12}, "UniformOutput", false);
+%! [A, B, C] = cellfun ('find', {10, 11; 0, 12}, "UniformOutput", false);
 %! assert (isequal (A, {true, true; [], true}));
 %! assert (isequal (B, {true, true; [], true}));
 %! assert (isequal (C, {10, 11; [], 12}));
@@ -1014,34 +1014,34 @@ nevermind:
 %!assert (cellfun ("size", {zeros([1,2,3]),1}, 1), [1,1])
 %!assert (cellfun ("size", {zeros([1,2,3]),1}, 2), [2,1])
 %!assert (cellfun ("size", {zeros([1,2,3]),1}, 3), [3,1])
-%!assert (cellfun (@atan2, {1,1}, {1,2}), [atan2(1,1), atan2(1,2)])
-%!assert (cellfun (@atan2, {1,1}, {1,2},"UniformOutput", false),
+%!assert (cellfun ('atan2', {1,1}, {1,2}), [atan2(1,1), atan2(1,2)])
+%!assert (cellfun ('atan2', {1,1}, {1,2},"UniformOutput", false),
 %!        {atan2(1,1), atan2(1,2)})
-%!assert (cellfun (@sin, {1,2;3,4}), sin ([1,2;3,4]))
-%!assert (cellfun (@atan2, {1,1;1,1}, {1,2;1,2}), atan2 ([1,1;1,1],[1,2;1,2]))
-%!error cellfun (@factorial, {-1,3})
-%!assert (cellfun (@factorial,{-1,3},"ErrorHandler",@(x,y) NaN), [NaN,6])
-%!assert (cellfun (@(x) x(2),{[1],[1,2]},"ErrorHandler",@(x,y) NaN), [NaN,2])
+%!assert (cellfun ('sin', {1,2;3,4}), sin ([1,2;3,4]))
+%!assert (cellfun ('atan2', {1,1;1,1}, {1,2;1,2}), atan2 ([1,1;1,1],[1,2;1,2]))
+%!error cellfun ('factorial', {-1,3})
+%!assert (cellfun ('factorial', {-1,3}, "ErrorHandler", @(x,y) NaN), [NaN,6])
+%!assert (cellfun (@(x) x(2),{[1],[1,2]}, "ErrorHandler", @(x,y) NaN), [NaN,2])
 %!test
-%! [a,b,c] = cellfun (@fileparts, {fullfile("a","b","c.d"), fullfile("e","f","g.h")}, "UniformOutput", false);
+%! [a,b,c] = cellfun ('fileparts', {fullfile("a","b","c.d"), fullfile("e","f","g.h")}, "UniformOutput", false);
 %! assert (a, {fullfile("a","b"), fullfile("e","f")});
 %! assert (b, {"c", "g"});
 %! assert (c, {".d", ".h"});
 
-%!assert <*40467> (cellfun (@isreal, {1 inf NaN []}), [true, true, true, true])
+%!assert <*40467> (cellfun ('isreal', {1 inf NaN []}), [true, true, true, true])
 %!assert <*40467> (cellfun (@isreal, {1 inf NaN []}, "UniformOutput", false),
 %!                 {true, true, true, true})
-%!assert <*40467> (cellfun (@iscomplex, {1 inf NaN []}),
+%!assert <*40467> (cellfun ('iscomplex', {1 inf NaN []}),
 %!                 [false, false, false, false])
-%!assert <*40467> (cellfun (@iscomplex, {1 inf NaN []}, "UniformOutput", false),
+%!assert <*40467> (cellfun ('iscomplex', {1 inf NaN []}, "UniformOutput", false),
 %!                 {false, false, false, false})
 
 %!error cellfun (1)
 %!error cellfun ("isclass", 1)
 %!error cellfun ("size", 1)
-%!error cellfun (@sin, {[]}, "BadParam", false)
-%!error cellfun (@sin, {[]}, "UniformOuput")
-%!error cellfun (@sin, {[]}, "ErrorHandler")
+%!error cellfun ('sin', {[]}, "BadParam", false)
+%!error cellfun ('sin', {[]}, "UniformOuput")
+%!error cellfun ('sin', {[]}, "ErrorHandler")
 
 %!function retval = __errfcn (S, varargin)
 %!  global __errmsg;
@@ -1050,7 +1050,7 @@ nevermind:
 %!endfunction
 %!test <*58411>
 %! global __errmsg;
-%! assert (cellfun (@factorial, {1, 2, -3}, "ErrorHandler", @__errfcn),
+%! assert (cellfun ('factorial', {1, 2, -3}, "ErrorHandler", @__errfcn),
 %!         [1, 2, NaN]);
 %! assert (! isempty (__errmsg));
 %! clear -global __errmsg;
