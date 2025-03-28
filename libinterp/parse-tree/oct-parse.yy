@@ -5826,8 +5826,8 @@ context of the function that called the present function
 
 DEFMETHOD (feval, interp, args, nargout,
            doc: /* -*- texinfo -*-
-@deftypefn  {} {@var{y1}, @var{y2}, @dots{} =} feval ('@var{fcn}', @var{x1}, @var{x2}, @dots{})
-@deftypefnx {} {@var{y1}, @var{y2}, @dots{} =} feval (@@@var{fcn}, @var{x1}, @var{x2}, @dots{})
+@deftypefn  {} {[@var{y1}, @var{y2}, @dots{}] =} feval ('@var{fcn}', @var{x1}, @var{x2}, @dots{})
+@deftypefnx {} {[@var{y1}, @var{y2}, @dots{}] =} feval (@@@var{fcn}, @var{x1}, @var{x2}, @dots{})
 Evaluate the function @var{fcn} with inputs @var{x1}, @var{x2}, @dots{}
 
 The function @var{fcn} may be specified by name in a string or given as a
@@ -5863,7 +5863,7 @@ feval (@var{f}, 1)
 are equivalent ways to call the function referred to by @var{f}.  If it cannot
 be predicted beforehand whether @var{f} is a function handle, function name in
 a string, or inline function then @code{feval} can be used instead.
-@seealso{builtin, eval, evalin} 
+@seealso{builtin, eval, evalin}
 @end deftypefn */)
 {
   if (args.length () == 0)
@@ -5921,7 +5921,7 @@ DEFMETHOD (eval, interp, args, nargout,
            doc: /* -*- texinfo -*-
 @deftypefn  {} {} eval (@var{try})
 @deftypefnx {} {} eval (@var{try}, @var{catch})
-@deftypefnx {} {[@var{var1}, @dots{} =} eval (@dots{})
+@deftypefnx {} {[@var{var1}, @dots{}] =} eval (@dots{})
 Parse the string @var{try} and evaluate it as if it were an Octave program.
 
 If execution fails, evaluate the optional string @var{catch}.
@@ -5933,7 +5933,7 @@ The following example creates the variable @var{A} with the approximate value
 of pi (3.1416) in the current workspace.
 
 @example
-eval ("A = acos (-1);");
+eval ('A = acos (-1);');
 @end example
 
 If an error occurs during the evaluation of @var{try} then the @var{catch}
@@ -6070,7 +6070,7 @@ DEFMETHOD (evalin, interp, args, nargout,
            doc: /* -*- texinfo -*-
 @deftypefn  {} {} evalin (@var{context}, @var{try})
 @deftypefnx {} {} evalin (@var{context}, @var{try}, @var{catch})
-@deftypefnx {} {[@var{var1}, @dots{} =} evalin (@dots{})
+@deftypefnx {} {[@var{var1}, @dots{}] =} evalin (@dots{})
 Like @code{eval}, except that the expressions are evaluated in the context
 @var{context}, which may be either @qcode{"caller"} or @qcode{"base"}.
 @seealso{eval, assignin}
@@ -6109,7 +6109,7 @@ This function behaves like @code{eval}, but any output or warning messages
 which would normally be written to the console are captured and returned in
 the string @var{s}.
 
-If the first output @var{s} is ignored with `@code{~}` then the actual results
+If the first output @var{s} is ignored with @code{~} then the actual results
 of the code evaluation (not the string capture) will be assigned to output
 variables @var{var1}, @var{var2}, etc.
 
