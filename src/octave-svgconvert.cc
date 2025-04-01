@@ -907,7 +907,7 @@ read from stdin\n\
   2: merge all triangles that share edges (might take a long time)\n\
 * outfile: output file name\n";
 
-  if (strcmp (argv[1], "-h") == 0)
+  if ((argc > 1) && (strcmp (argv[1], "-h") == 0))
     {
       std::cout << help;
       return 0;
