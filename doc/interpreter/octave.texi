@@ -95,6 +95,10 @@ manual into another language, under the above conditions for
 modified versions.
 @end ifnottex
 
+@c Don't print ugly black squares for overfull hboxes in PDF output.
+@c Comment out this line when debugging overfull hbox warnings.
+@finalout
+
 @titlepage
 @title GNU Octave
 @subtitle A high-level interactive language for numerical computations
