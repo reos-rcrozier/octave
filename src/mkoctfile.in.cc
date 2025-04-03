@@ -762,7 +762,7 @@ main (int argc, char **sys_argv)
       return 0;
     }
 
-  std::list<std::string> cfiles, ccfiles, f77files, tmp_objfiles;
+  std::list<std::string> cfiles, ccfiles, f77files, tmp_files;
   std::string output_ext = ".oct";
   std::string objfiles, libfiles, octfile, outputfile;
   std::string incflags, defs, ldflags, pass_on_options;
@@ -1027,6 +1027,9 @@ main (int argc, char **sys_argv)
           std::string tmp_file = create_mex_soversion_file ();
 
           cfiles.push_back (tmp_file);
+
+          // clean up temporary C file with object files
+          tmp_files.push_back (tmp_file);
         }
 
       if (mx_has_interleaved_complex)
@@ -1043,6 +1046,9 @@ main (int argc, char **sys_argv)
               std::string tmp_file = create_interleaved_complex_file ();
 
               cfiles.push_back (tmp_file);
+
+              // clean up temporary C file with object files
+              tmp_files.push_back (tmp_file);
             }
         }
     }
@@ -1235,7 +1241,7 @@ main (int argc, char **sys_argv)
             {
               o = tmp_objfile_name ();
 
-              tmp_objfiles.push_back (o);
+              tmp_files.push_back (o);
 
               objfiles += (' ' + o);
             }
@@ -1275,7 +1281,7 @@ main (int argc, char **sys_argv)
             {
               o = tmp_objfile_name ();
 
-              tmp_objfiles.push_back (o);
+              tmp_files.push_back (o);
 
               objfiles += (' ' + o);
             }
@@ -1315,7 +1321,7 @@ main (int argc, char **sys_argv)
             {
               o = tmp_objfile_name ();
 
-              tmp_objfiles.push_back (o);
+              tmp_files.push_back (o);
 
               objfiles += (' ' + o);
             }
@@ -1369,7 +1375,7 @@ main (int argc, char **sys_argv)
 
           int status = run_command (cmd, verbose, printonly);
 
-          clean_up_tmp_files (tmp_objfiles);
+          clean_up_tmp_files (tmp_files);
 
           if (status)
             return status;
@@ -1405,7 +1411,7 @@ main (int argc, char **sys_argv)
 
       int status = run_command (cmd, verbose, printonly);
 
-      clean_up_tmp_files (tmp_objfiles);
+      clean_up_tmp_files (tmp_files);
 
       if (status)
         return status;
