@@ -836,13 +836,13 @@ function [local_packages, global_packages] = pkg (varargin)
         installed_pkg_name = installed_pkgs_lst{i}.name;
         installed_pkg_version = installed_pkgs_lst{i}.version;
         try
-          forge_pkg_version = get_pkg_info (installed_pkg_name);
+          online_pkg_version = get_pkg_info (installed_pkg_name);
         catch
           warning ("pkg: package %s not found on Octave Packages - skipping update\n",
                    installed_pkg_name);
-          forge_pkg_version = "0";
+          online_pkg_version = "0";
         end_try_catch
-        if (compare_versions (forge_pkg_version, installed_pkg_version, ">"))
+        if (compare_versions (online_pkg_version, installed_pkg_version, ">"))
           options_to_pass = varargin (strncmp (varargin, "-", 1));
           feval (@pkg, "install", options_to_pass{:}, installed_pkg_name);
         endif
