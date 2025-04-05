@@ -1,4 +1,4 @@
-Summary of important user-visible changes for version 10 (2025-03-25):
+Summary of important user-visible changes for version 10 (2025-03-28):
 ---------------------------------------------------------------------
 
 ### General improvements
@@ -232,8 +232,8 @@ from Octave 10.
   `pkg global_list`.
 
 
-Summary of bugs fixed for version 10.1.0 (yyyy-mm-dd):
-----------------------------------------------------
+Summary of bugs fixed for version 10.1.0 (2025-03-28):
+-----------------------------------------------------
 
 - bug #66753: `hist.m`: Test for equal bin spacing using a numeric tolerance.
 - bug #66753: `hist.m`: Fix regression in determining equal bin spacing.
