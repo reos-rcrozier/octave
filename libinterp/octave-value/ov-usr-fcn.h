@@ -249,7 +249,8 @@ public:
   octave::filepos beg_pos () const { return m_fcn_tok.beg_pos(); }
   // The end_pos function is defined in the octave_user_code class.
 
-  OCTINTERP_API octave::comment_list leading_comments () const { return m_fcn_tok.leading_comments (); }
+  octave::comment_list leading_comments () const
+  { return m_fcn_tok.leading_comments (); }
   // The trailing_comments function is defined in the octave_user_code class.
 
   OCTINTERP_API void maybe_relocate_end ();
