@@ -67,7 +67,10 @@ public:
 
   token op_token () const { return m_op_tok; }
 
-  std::string oper () const;
+  OCTAVE_DEPRECATED (11, "use tree_unary_op::op_str instead")
+  std::string oper () const { return op_str (); }
+
+  std::string op_str () const;
 
   octave_value::unary_op op_type () const { return m_etype; }
 
@@ -119,7 +122,7 @@ public:
     tw.visit_prefix_expression (*this);
   }
 
-  std::string profiler_name () const { return "prefix " + oper (); }
+  std::string profiler_name () const { return "prefix " + op_str (); }
 };
 
 // Postfix expressions.
@@ -158,7 +161,7 @@ public:
     tw.visit_postfix_expression (*this);
   }
 
-  std::string profiler_name () const { return "postfix " + oper (); }
+  std::string profiler_name () const { return "postfix " + op_str (); }
 };
 
 OCTAVE_END_NAMESPACE(octave)

@@ -78,7 +78,10 @@ public:
 
   bool rvalue_ok () const { return true; }
 
-  std::string oper () const;
+  OCTAVE_DEPRECATED (11, "use tree_binary_expression::op_str instead")
+  std::string oper () const { return op_str (); }
+
+  std::string op_str () const;
 
   octave_value::binary_op op_type () const { return m_etype; }
 
@@ -105,7 +108,7 @@ public:
     tw.visit_binary_expression (*this);
   }
 
-  std::string profiler_name () const { return "binary " + oper (); }
+  std::string profiler_name () const { return "binary " + op_str (); }
 
   void matlab_style_short_circuit_warning (const char *op);
 
@@ -178,7 +181,10 @@ public:
 
   bool rvalue_ok () const { return true; }
 
-  std::string oper () const;
+  OCTAVE_DEPRECATED (11, "use tree_binary_expression::op_str instead")
+  std::string oper () const { return op_str (); }
+
+  std::string op_str () const;
 
   type op_type () const { return m_etype; }
 
