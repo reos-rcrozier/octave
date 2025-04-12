@@ -175,6 +175,8 @@ public:
 
   void cellify ();
 
+  std::list<octave_value> values () const { return m_values; }
+
 private:
 
   std::list<octave_value> m_values;
@@ -204,6 +206,8 @@ public:
   ~tm_const () = default;
 
   octave_value concat (char string_fill_char) const;
+
+  std::list<tm_row_const> tm_rows () const { return m_tm_rows; }
 
 private:
 

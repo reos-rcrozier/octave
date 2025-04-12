@@ -66,8 +66,6 @@ public:
       }
   }
 
-  token operator_token () const { return m_op_tok; }
-
   void preserve_operands () { m_preserve_operands = true; }
 
   bool is_binary_expression () const { return true; }
@@ -85,6 +83,9 @@ public:
   octave_value::binary_op op_type () const { return m_etype; }
 
   tree_expression * lhs () { return m_lhs; }
+
+  token op_token () const { return m_op_tok; }
+
   tree_expression * rhs () { return m_rhs; }
 
   void lhs (tree_expression *expr) { m_lhs = expr; }

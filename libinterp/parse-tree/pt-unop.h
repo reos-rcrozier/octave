@@ -65,6 +65,8 @@ public:
 
   tree_expression * operand () { return m_op; }
 
+  token op_token () const { return m_op_tok; }
+
   std::string oper () const;
 
   octave_value::unary_op op_type () const { return m_etype; }

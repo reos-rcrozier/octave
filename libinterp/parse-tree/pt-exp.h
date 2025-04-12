@@ -112,6 +112,8 @@ public:
 
   virtual std::string original_text () const;
 
+  tree_delimiter_list delims () const { return m_delims; }
+
   void mark_as_for_cmd_expr () { m_for_cmd_expr = true; }
 
   bool is_for_cmd_expr () const { return m_for_cmd_expr; }
