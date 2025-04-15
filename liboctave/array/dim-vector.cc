@@ -35,7 +35,6 @@
 
 #include "Array.h"
 #include "dim-vector.h"
-#include "lo-utils.h"
 
 void
 dim_vector::chop_all_singletons ()
@@ -83,29 +82,6 @@ dim_vector::num_ones () const
       retval++;
 
   return retval;
-}
-
-octave_idx_type
-dim_vector::safe_numel () const
-{
-  octave_idx_type n = xelem(0);
-
-  if (n > dim_max ())
-    throw std::bad_alloc ();
-
-  if (n == 0)
-    return 0;
-
-  for (int i = 1; i < ndims (); i++)
-    {
-      if (octave::math::int_multiply_overflow (n, xelem(i), &n) || n > dim_max ())
-        throw std::bad_alloc ();
-
-      if (n == 0)
-        return 0;
-    }
-
-  return n;
 }
 
 dim_vector
