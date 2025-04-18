@@ -507,19 +507,6 @@ z = a : d
 @end group
 @end example
 
-When adding a scalar to a range, subtracting a scalar from it (or subtracting a
-range from a scalar) and multiplying by scalar, Octave will attempt to avoid
-unpacking the range and keep the result as a range, too, if it can determine
-that it is safe to do so.  For instance, doing
-
-@example
-a = 2*(1:1e7) - 1;
-@end example
-
-@noindent
-will produce the same result as @code{1:2:2e7-1}, but without ever forming a
-vector with ten million elements.
-
 If the result of the range expression is empty then Octave returns an empty
 @code{matrix}, not an empty @code{double_range}.  Similarly, if there is just
 a single element in the range then Octave returns a @code{scalar}, not a
