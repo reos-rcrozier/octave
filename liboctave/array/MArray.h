@@ -28,7 +28,7 @@
 
 #include "octave-config.h"
 
-#include "Array.h"
+#include "Array-oct.h"
 #include "MArray-fwd.h"
 #include "mx-inlines.cc"
 
