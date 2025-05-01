@@ -29,6 +29,7 @@
 
 // Instantiate MArrays of double values.
 
+#define OCTAVE_EXTERN_TEMPLATE_MARRAY
 #include "MArray.h"
 #include "MArray.cc"
 

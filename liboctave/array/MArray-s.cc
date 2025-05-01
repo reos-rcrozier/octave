@@ -29,6 +29,7 @@
 
 // Instantiate MArrays of short int values.
 
+#define OCTAVE_EXTERN_TEMPLATE_MARRAY
 #include "MArray.h"
 #include "MArray.cc"
 
