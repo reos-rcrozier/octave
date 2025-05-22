@@ -1324,6 +1324,7 @@ disable escape sequence expansion use a second backslash before the sequence
         {
           octave_value c = m.getfield ("stack");
 
+          if (c.isstruct ())
             {
               octave_map err_stack = c.map_value ();
 
