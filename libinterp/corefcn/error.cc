@@ -1380,6 +1380,25 @@ disable escape sequence expansion use a second backslash before the sequence
 }
 
 /*
+%!error <some message>
+%! error ('some message');
+
+%!error <some message>
+%! error ('my:err', 'some message');
+
+%!error id=my:err
+%! error ('my:err', 'some message');
+
+%!error <some message>
+%! err.identifier = 'my:err';
+%! err.message = 'some message';
+%! error (err);
+
+%!error id=my:err
+%! err.identifier = 'my:err';
+%! err.message = 'some message';
+%! error (err);
+
 ## bug #67143
 %!error <some message>
 %! err.identifier = 'my:err';
