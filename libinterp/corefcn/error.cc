@@ -1324,9 +1324,18 @@ disable escape sequence expansion use a second backslash before the sequence
         {
           octave_value c = m.getfield ("stack");
 
-          if (c.isstruct ())
-            stack_info
-              = error_system::make_stack_frame_list (c.map_value ());
+            {
+              octave_map err_stack = c.map_value ();
+
+              if (! (err_stack.contains ("file") && err_stack.contains ("name")
+                     && err_stack.contains ("line")))
+                error ("error: STACK struct must contain the fields 'file', 'name', and 'line'");
+
+              if (! err_stack.contains ("column"))
+                err_stack.setfield ("column", Cell (octave_value (-1)));
+
+              stack_info = error_system::make_stack_frame_list (err_stack);
+            }
         }
     }
   else
@@ -1368,6 +1377,28 @@ disable escape sequence expansion use a second backslash before the sequence
 
   return retval;
 }
+
+/*
+## bug #67143
+%!error <some message>
+%! err.identifier = 'my:err';
+%! err.message = 'some message';
+%! err.stack = struct ('file', '', 'name', 'my function', 'line', 0);
+%! error (err);
+
+%!error id=my:err
+%! err.identifier = 'my:err';
+%! err.message = 'some message';
+%! err.stack = struct ('file', '', 'name', 'my function', 'line', 0, ...
+%!                     'column', 0);
+%! error (err);
+
+%!error <must contain .*file>
+%! err.identifier = 'my:err';
+%! err.message = 'some message';
+%! err.stack = struct ('name', 'my function', 'line', 0);
+%! error (err);
+*/
 
 DEFMETHOD (warning, interp, args, nargout,
            doc: /* -*- texinfo -*-
