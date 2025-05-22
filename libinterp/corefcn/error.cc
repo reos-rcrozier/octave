@@ -395,8 +395,8 @@ error_system::make_stack_map (const std::list<frame_info>& frames)
   return retval;
 }
 
-std::list<frame_info>
-error_system::make_stack_frame_list (const octave_map& stack)
+static std::list<frame_info>
+make_stack_frame_list_intern (const octave_map& stack)
 {
   std::list<frame_info> frames;
 
@@ -414,6 +414,25 @@ error_system::make_stack_frame_list (const octave_map& stack)
                                   column(i).int_value ()));
 
   return frames;
+}
+
+std::list<frame_info>
+error_system::make_stack_frame_list (const octave_map& stack,
+                                     const std::string& who)
+{
+  if (! (stack.contains ("file") && stack.contains ("name")
+         && stack.contains ("line")))
+    error ("%s: STACK struct must contain the fields 'file', 'name', and 'line'",
+           who.c_str ());
+
+  if (! stack.contains ("column"))
+    {
+      octave_map stack1 (stack);  // copy before modification
+      stack1.setfield ("column", Cell (octave_value (-1)));
+      return make_stack_frame_list_intern (stack1);
+    }
+  else
+    return make_stack_frame_list_intern (stack);
 }
 
 // For given warning ID, return 0 if warnings are disabled, 1 if
@@ -622,22 +641,7 @@ error_system::rethrow_error (const std::string& id,
   execution_exception ee ("error", id, msg, stack_info);
 
   if (! stack.isempty ())
-    {
-      if (! (stack.contains ("file") && stack.contains ("name")
-             && stack.contains ("line")))
-        error ("rethrow: STACK struct must contain the fields 'file', 'name', and 'line'");
-
-      if (! stack.contains ("column"))
-        {
-          octave_map new_stack = stack;
-
-          new_stack.setfield ("column", Cell (octave_value (-1)));
-
-          ee.set_stack_info (make_stack_frame_list (new_stack));
-        }
-      else
-        ee.set_stack_info (make_stack_frame_list (stack));
-    }
+    ee.set_stack_info (make_stack_frame_list (stack, "rethrow"));
 
   throw_error (ee);
 }
@@ -1326,16 +1330,9 @@ disable escape sequence expansion use a second backslash before the sequence
 
           if (c.isstruct ())
             {
-              octave_map err_stack = c.map_value ();
-
-              if (! (err_stack.contains ("file") && err_stack.contains ("name")
-                     && err_stack.contains ("line")))
-                error ("error: STACK struct must contain the fields 'file', 'name', and 'line'");
-
-              if (! err_stack.contains ("column"))
-                err_stack.setfield ("column", Cell (octave_value (-1)));
-
-              stack_info = error_system::make_stack_frame_list (err_stack);
+              octave_map stack = c.map_value ();
+              stack_info = error_system::make_stack_frame_list (stack,
+                                                                "error");
             }
         }
     }
