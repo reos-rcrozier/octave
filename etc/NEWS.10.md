@@ -52,13 +52,13 @@ Summary of bugs fixed for version 10.2.0 (tbd):
 
 - Add visibility attributes for the `octave::base_fcn_handle` class.
 - Add visibility attributes to parse tree symbols (bug #67056).
-- Add visibility attributes to Array<T> template class member functions.
-- Use correct preprocessor macro when instantiating MArray template class.
+- Add visibility attributes to `Array<T>` template class member functions.
+- Use correct preprocessor macro when instantiating `MArray` template class.
 - Disable visibility flags by default.
 - Support passing additional flags when linking `octave*` executables.
 - Single-quote path that might contain unescaped backslashes in the generation
   of the doc cache.
-- Ignore deprecation warning for std::wbuffer_convert in header.
+- Ignore deprecation warning for `std::wbuffer_convert` in header.
 - `error`: Add more built-in self-tests.
 
 ### Documentation
