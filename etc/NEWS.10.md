@@ -37,6 +37,9 @@ Summary of bugs fixed for version 10.2.0 (tbd):
 - `octave-svgconvert`: Speed up printing to PDF (bug #66959).
 - `error`: Fix segmentation fault on missing fields in `err.stack` structure
   (bug #67143).
+- Avoid parse error for empty lines in debug mode (bug #67108).
+- Check if effective SOVERSION is exported from .mex file libraries
+  (bug #67163).
 
 ### GUI
 
@@ -56,6 +59,7 @@ Summary of bugs fixed for version 10.2.0 (tbd):
 - Single-quote path that might contain unescaped backslashes in the generation
   of the doc cache.
 - Ignore deprecation warning for std::wbuffer_convert in header.
+- `error`: Add more built-in self-tests.
 
 ### Documentation
 
@@ -77,6 +81,7 @@ Summary of bugs fixed for version 10.2.0 (tbd):
 - Remove outdated text on range arithmetic from manual.
 - Examples: Add missing namespace `octave` when calling built-in function in
   `standalonebuiltin.cc`.
+- Document calling `error()` with structure input (bug #67143).
 
 
 Summary of important user-visible changes for version 10 (2025-03-28):
