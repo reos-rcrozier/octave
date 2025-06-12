@@ -13,7 +13,7 @@ This document provides step-by-step instructions for building the GNU Octave pro
 
 1. **Clone or Checkout the Repository**
 
-   Ensure you have a clean copy of the GNU Octave source tree. This may be from a mercurial clone, a git checkout of the official git mirror of the hg repository.
+   Ensure you have a clean copy of the GNU Octave source tree. This may be from a mercurial clone, a git checkout of the official git mirror of the hg repository. The repository includes the gnulib repository as a subrepository.
 
 2. **Prepare the Build System**
 
