@@ -78,12 +78,12 @@ function [x, y, z] = pol2cart (theta, r, z = [])
 
   if (nargin == 1)
     if (! (isnumeric (theta) && ismatrix (theta)))
-      error ("cart2pol: matrix input P must be 2-D numeric array");
+      error ("pol2cart: matrix input P must be 2-D numeric array");
     endif
     if (isvector (theta))
       n = numel (theta);
       if (n != 2 && n != 3)
-        error ("cart2pol: matrix input must be a 2- or 3-element vector or a 2- or 3-column array");
+        error ("pol2cart: matrix input must be a 2- or 3-element vector or a 2- or 3-column array");
       endif
       if (n == 3)
         z = theta(3);
@@ -94,7 +94,7 @@ function [x, y, z] = pol2cart (theta, r, z = [])
     else
       ncols = columns (theta);
       if (ncols != 2 && ncols != 3)
-        error ("cart2pol: matrix input must be a 2- or 3-element vector or a 2- or 3-column array");
+        error ("pol2cart: matrix input must be a 2- or 3-element vector or a 2- or 3-column array");
       endif
 
       if (ncols == 3)
